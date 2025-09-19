@@ -8,35 +8,13 @@ services:
     container_name: postgres-mcp-server
     environment:
       - PYTHONUNBUFFERED=1
+      # PostgreSQL connection will be provided via environment variables
+      # or external configuration when integrated into other projects
     volumes:
       - ./postgres-mcp-server.py:/app/postgres-mcp-server.py:ro
       - ./requirements.txt:/app/requirements.txt:ro
-    networks:
-      - postgres-network
-    depends_on:
-      - postgres
     restart: unless-stopped
     stdin_open: true
     tty: true
-
-  postgres:
-    image: postgres:15-alpine
-    container_name: postgres-mcp-db
-    environment:
-      POSTGRES_DB: mcp_test
-      POSTGRES_USER: mcp_user
-      POSTGRES_PASSWORD: mcp_password
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-    ports:
-      - "5433:5432"
-    networks:
-      - postgres-network
-    restart: unless-stopped
-
-volumes:
-  postgres_data:
-
-networks:
-  postgres-network:
-    driver: bridge
+    # Note: This service is designed to connect to external PostgreSQL databases
+    # No internal database service is provided - use with existing PostgreSQL instances

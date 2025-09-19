@@ -14,20 +14,33 @@ A Dockerized Micro-Agent Communication Protocol (MCP) server for PostgreSQL data
 
 ## Quick Start
 
-1. Clone and configure:
+### Standalone Usage (Client-Only)
+
+1. Clone the repository:
 ```bash
 git clone https://github.com/bogartusmaximus/mcp-server-postgres.git
 cd mcp-server-postgres
 ```
 
-2. Update `docker-compose.yml` with your PostgreSQL credentials
+2. Configure environment variables for your PostgreSQL connection:
+```bash
+export POSTGRES_HOST=your-postgres-host
+export POSTGRES_PORT=5432
+export POSTGRES_DB=your-database
+export POSTGRES_USER=your-username
+export POSTGRES_PASSWORD=your-password
+```
 
-3. Start services:
+3. Start the MCP server:
 ```bash
 ./start.sh
 ```
 
 4. Configure Cursor AI with `cursor-mcp-config.json`
+
+### Integration with Existing Projects
+
+This MCP server is designed to be integrated into existing projects that already have PostgreSQL databases. It connects as a client to external PostgreSQL instances and does not provide its own database server.
 
 ## Available MCP Tools
 
