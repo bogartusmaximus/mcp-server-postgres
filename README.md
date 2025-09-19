@@ -16,7 +16,7 @@ A Dockerized Micro-Agent Communication Protocol (MCP) server for PostgreSQL data
 
 1. Clone and configure:
 ```bash
-git clone https://github.com/bogartusamximus/mcp-server-postgres.git
+git clone https://github.com/bogartusmaximus/mcp-server-postgres.git
 cd mcp-server-postgres
 ```
 
