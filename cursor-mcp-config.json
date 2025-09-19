@@ -1,0 +1,22 @@
+{
+  "mcpServers": {
+    "postgres-mcp-server": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "--network",
+        "host",
+        "postgres-mcp-server"
+      ],
+      "env": {
+        "POSTGRES_HOST": "localhost",
+        "POSTGRES_PORT": "5433",
+        "POSTGRES_DB": "mcp_test",
+        "POSTGRES_USER": "mcp_user",
+        "POSTGRES_PASSWORD": "mcp_password"
+      }
+    }
+  }
+}
